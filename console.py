@@ -21,12 +21,12 @@ class HBNBCommand(cmd.Cmd):
     classes = {"BaseModel", "State", "City",
                "Amenity", "Place", "Review", "User"}
 
-    def EOF(self, line):
+    def do_EOF(self, line):
         """Exit on Ctrl-D"""
         print()
         return True
 
-    def quit(self, line):
+    def do_quit(self, line):
         """Exit on quit"""
         return True
 
@@ -34,7 +34,7 @@ class HBNBCommand(cmd.Cmd):
         """Overwrite default behavior to repeat last cmd"""
         pass
 
-    def create(self, line):
+    def do_create(self, line):
         """Create instance specified by user"""
         if len(line) == 0:
             print("** class name missing **")
@@ -45,7 +45,7 @@ class HBNBCommand(cmd.Cmd):
             instance.save()
             print(instance.id)
 
-    def show(self, line):
+    def do_show(self, line):
         """Print string representation: name and id"""
         if len(line) == 0:
             print("** class name missing **")
@@ -64,7 +64,7 @@ class HBNBCommand(cmd.Cmd):
         except IndexError:
             print("** instance id missing **")
 
-    def destroy(self, line):
+    def do_destroy(self, line):
         """Destroy instance specified by user; Save changes to JSON file"""
         if len(line) == 0:
             print("** class name missing **")
@@ -84,7 +84,7 @@ class HBNBCommand(cmd.Cmd):
         except IndexError:
             print("** instance id missing **")
 
-    def all(self, line):
+    def do_all(self, line):
         """Print all objects or all objects of specified class"""
         args = parse(line)
         obj_list = []
@@ -100,7 +100,7 @@ class HBNBCommand(cmd.Cmd):
         else:
             print("** class doesn't exist **")
 
-    def update(self, line):
+    def do_update(self, line):
         """Update if given exact object, exact attribute"""
         args = parse(line)
         if len(args) >= 4:
@@ -124,7 +124,7 @@ class HBNBCommand(cmd.Cmd):
         else:
             print("** value missing **")
 
-    def count(self, line):
+    def do_count(self, line):
         """Display count of instances specified"""
         if line in HBNBCommand.classes:
             count = 0
