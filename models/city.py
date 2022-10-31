@@ -8,9 +8,9 @@ from models.base_model import BaseModel
 class City(BaseModel):
     """
     Inherits from BaseModel
-    Public class attribute:
-        state_id: (str)
-        name: (str)
+    Public class attributes:
+        state_id: (str) will be State.id
+        name:     (str)
     """
-    state_id=""
+    state_id = ""
     name = ""

@@ -1,14 +1,15 @@
 #!/usr/bin/python3
-"""
-Class User that inherits from BaseModel
+"""user class
 """
 
 from models.base_model import BaseModel
+import json
 
 
 class User(BaseModel):
     '''base model class'''
-    email=""
-    password=""
-    first_name=""
-    lastname=""
+
+    email = ""
+    password = ""
+    first_name = ""
+    last_name = ""
